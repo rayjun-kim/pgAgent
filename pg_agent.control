@@ -1,0 +1,6 @@
+# pg_agent extension
+comment = 'pg_agent: Autonomous Agent capabilities for PostgreSQL'
+default_version = '0.1.0'
+relocatable = false
+superuser = false
+requires = 'vector, pgcrypto'
