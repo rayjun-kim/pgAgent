@@ -1,6 +1,6 @@
-EXTENSION = pg_agent
-DATA = pg_agent--0.1.0.sql
-PGFILEDESC = "pg_agent: Autonomous Agent capabilities for PostgreSQL"
+EXTENSION = pgagent
+DATA = pgagent--0.1.0.sql
+PGFILEDESC = "pgagent: Autonomous Agent capabilities for PostgreSQL"
 
 SQL_FILES = sql/00_init.sql \
             sql/01_tables.sql \
@@ -13,9 +13,9 @@ PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
 
-pg_agent--0.1.0.sql: $(SQL_FILES)
+pgagent--0.1.0.sql: $(SQL_FILES)
 	echo "-- ============================================================================" > $@
-	echo "-- pg_agent for PostgreSQL v0.1.0" >> $@
+	echo "-- pgagent for PostgreSQL v0.1.0" >> $@
 	echo "-- Generated on $$(date)" >> $@
 	echo "-- ============================================================================" >> $@
 	echo "" >> $@
@@ -25,13 +25,13 @@ pg_agent--0.1.0.sql: $(SQL_FILES)
 		echo "" >> $@; \
 	done
 
-dev-install: pg_agent--0.1.0.sql
-	psql -c "DROP EXTENSION IF EXISTS pg_agent"
-	psql -c "CREATE EXTENSION pg_agent"
+dev-install: pgagent--0.1.0.sql
+	psql -c "DROP EXTENSION IF EXISTS pgagent"
+	psql -c "CREATE EXTENSION pgagent"
 
 test:
 	psql -f tests/smoke_test.sql
 
 stats:
 	@echo "SQL Extension size (lines):"
-	@wc -l pg_agent--0.1.0.sql
+	@wc -l pgagent--0.1.0.sql

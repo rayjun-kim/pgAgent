@@ -1,5 +1,5 @@
 -- ============================================================================
--- pg_agent: Core Functions
+-- pgagent: Core Functions
 -- Purpose: Main API functions for memory storage and retrieval
 -- ============================================================================
 

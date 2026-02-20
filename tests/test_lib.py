@@ -1,5 +1,5 @@
 """
-pg_agent Python Library Unit Tests
+pgagent Python Library Unit Tests
 
 Run: python -m pytest tests/test_lib.py -v
 """

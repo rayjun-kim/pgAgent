@@ -1,4 +1,4 @@
-"""pg_agent Embedding Providers.
+"""pgagent Embedding Providers.
 
 Supports: OpenAI, Gemini, Voyage, Ollama
 """

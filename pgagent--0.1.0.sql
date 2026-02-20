@@ -1,11 +1,11 @@
 -- ============================================================================
--- pg_agent for PostgreSQL v0.1.0
+-- pgagent for PostgreSQL v0.1.0
 -- Generated on 2026-02-19 23:06:39 KST
 -- ============================================================================
 
 -- Source: sql/00_init.sql
 -- ============================================================================
--- pg_agent: PostgreSQL Agent Extension
+-- pgagent: PostgreSQL Agent Extension
 -- Purpose: Initialization and Schema Setup
 -- ============================================================================
 
@@ -16,11 +16,11 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 -- Single unified schema
 CREATE SCHEMA IF NOT EXISTS pgagent;
 
-COMMENT ON SCHEMA pgagent IS 'pg_agent: Autonomous Agent capabilities for PostgreSQL';
+COMMENT ON SCHEMA pgagent IS 'pgagent: Autonomous Agent capabilities for PostgreSQL';
 
 -- Source: sql/01_tables.sql
 -- ============================================================================
--- pg_agent: Core Tables
+-- pgagent: Core Tables
 -- Purpose: Memory storage, chunking, and session management
 -- ============================================================================
 
@@ -134,7 +134,7 @@ COMMENT ON TABLE pgagent.session IS 'Session-scoped memory for conversations';
 
 -- Source: sql/02_functions.sql
 -- ============================================================================
--- pg_agent: Core Functions
+-- pgagent: Core Functions
 -- Purpose: Main API functions for memory storage and retrieval
 -- ============================================================================
 
@@ -369,7 +369,7 @@ $$;
 
 -- Source: sql/03_hybrid_search.sql
 -- ============================================================================
--- pg_agent: Hybrid Search
+-- pgagent: Hybrid Search
 -- Purpose: Combined vector similarity + FTS search
 -- ============================================================================
 
@@ -596,7 +596,7 @@ $$;
 
 -- Source: sql/04_chunking.sql
 -- ============================================================================
--- pg_agent: Chunking
+-- pgagent: Chunking
 -- Purpose: Text chunking and document storage
 -- ============================================================================
 
@@ -777,7 +777,7 @@ $$;
 
 -- Source: sql/05_settings.sql
 -- ============================================================================
--- pg_agent: Settings
+-- pgagent: Settings
 -- Purpose: Configuration management
 -- ============================================================================
 

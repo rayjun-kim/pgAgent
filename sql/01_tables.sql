@@ -1,5 +1,5 @@
 -- ============================================================================
--- pg_agent: Core Tables
+-- pgagent: Core Tables
 -- Purpose: Memory storage, chunking, and session management
 -- ============================================================================
 

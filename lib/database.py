@@ -1,5 +1,5 @@
 """
-pg_agent Database Interface
+pgagent Database Interface
 """
 
 import json

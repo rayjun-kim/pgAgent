@@ -1,10 +1,10 @@
--- pg_agent Smoke Test
+-- pgagent Smoke Test
 -- Run: psql -d postgres -f tests/smoke_test.sql
 
-\echo '=== pg_agent Smoke Test ==='
+\echo '=== pgagent Smoke Test ==='
 
 -- Ensure extension and schema exist
-CREATE EXTENSION IF NOT EXISTS pg_agent;
+CREATE EXTENSION IF NOT EXISTS pgagent;
 
 -- Test should_capture
 \echo 'Testing should_capture...'

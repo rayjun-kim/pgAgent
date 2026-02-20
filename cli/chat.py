@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-pg_agent CLI Chat
+pgagent CLI Chat
 Usage: python cli/chat.py [--db DATABASE_URL]
 """
 
@@ -20,12 +20,12 @@ load_dotenv()
 
 
 def main():
-    parser = argparse.ArgumentParser(description='pg_agent CLI Chat')
+    parser = argparse.ArgumentParser(description='pgagent CLI Chat')
     parser.add_argument('--db', default=os.getenv('DATABASE_URL', 'postgresql://localhost:5432/postgres'),
                         help='Database connection URL')
     args = parser.parse_args()
 
-    print("🧠 pg_agent CLI")
+    print("🧠 pgagent CLI")
     print("Type 'quit' or 'exit' to end, 'stats' for memory stats")
     print("-" * 40)
 

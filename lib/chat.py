@@ -1,4 +1,4 @@
-"""pg_agent Chat Providers.
+"""pgagent Chat Providers.
 
 Supports: OpenAI, Anthropic, Gemini, Ollama
 """

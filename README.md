@@ -33,7 +33,7 @@ is a SQL extension + Python interface (CLI/Web) project for storing and searchin
 
 ## 1) Project purpose 
 
-General agent frameworks are difficult to track because their memory is distributed across external vector DBs/files. `pg_agent` manages memory as PostgreSQL standard objects, enabling the following: 
+General agent frameworks are difficult to track because their memory is distributed across external vector DBs/files. `pgagent` manages memory as PostgreSQL standard objects, enabling the following: 
 
 - Immediately check the memory status with SQL 
 - Reuse PostgreSQL operating tools such as transaction/index/backup 
@@ -97,11 +97,11 @@ sudo -u postgres psql -c "SELECT version();"
 sudo -u postgres psql -d postgres -c "CREATE EXTENSION IF NOT EXISTS vector;" 
 sudo -u postgres psql -d postgres -c "CREATE EXTENSION IF NOT EXISTS pgcrypto;" 
 
-# Place the pg_agent installation file 
+# Place the pgagent installation file 
 make install 
 
 # Create the extension in the database 
-sudo -u postgres psql -d postgres -c "CREATE EXTENSION IF NOT EXISTS pg_agent;" 
+sudo -u postgres psql -d postgres -c "CREATE EXTENSION IF NOT EXISTS pgagent;" 
 ``` 
 
 ### 4.4 Python environment 
@@ -404,7 +404,7 @@ This is the API provided by the Web GUI server (`gui/server.py`).
 
 ```bash 
 curl http://localhost:8000/api/health 
-# → {"status":"ok","service":"pg_agent"} 
+# → {"status":"ok","service":"pgagent"} 
 ``` 
 
 #### Chat 
@@ -479,7 +479,7 @@ Commands available during the conversation:
 **Example conversation flow:** 
 
 ``` 
-🧠 pg_agent CLI 
+🧠 pgagent CLI 
 📡 Chat: ollama / llama3. 1:8b 
 🔢 Embedding: ollama / nomic-embed-text 
 ---------------------------------------- 
@@ -532,7 +532,7 @@ Commands available during the conversation:
 
 ### 7.5 Python library reference 
 
-You can use `pg_agent` directly from the code. 
+You can use `pgagent` directly from the code. 
 
 ```python 
 from lib.embeddings import get_embedding, get_embeddings_batch 
@@ -698,8 +698,8 @@ SELECT * FROM pgagent.stats();
 ## 11) Development memo 
 
 - SQL source: `sql/*.sql` 
-- Single file for distribution: `pg_agent--0.1.0.sql` (generated with Makefile) 
-- Regenerate SQL: `make pg_agent--0.1.0.sql` 
+- Single file for distribution: `pgagent--0.1.0.sql` (generated with Makefile) 
+- Regenerate SQL: `make pgagent--0.1.0.sql` 
 - Test SQL: `tests/smoke_test.sql` 
 - Python tests: `tests/test_lib.py` 
 

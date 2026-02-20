@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-pg_agent Web GUI Server
+pgagent Web GUI Server
 Usage: python gui/server.py [--port 8000] [--db DATABASE_URL]
 """
 
@@ -42,7 +42,7 @@ async def lifespan(app: FastAPI):
     db.close()
 
 
-app = FastAPI(title="pg_agent", lifespan=lifespan)
+app = FastAPI(title="pgagent", lifespan=lifespan)
 
 # CORS
 app.add_middleware(
@@ -79,7 +79,8 @@ class MemoryRequest(BaseModel):
 # API Routes
 @app.get("/api/health")
 def health():
-    return {"status": "ok", "service": "pg_agent"}
+    return {"status": "ok", "service": "pgagent
+"}
 
 
 @app.get("/api/settings")
@@ -211,7 +212,8 @@ def index():
 if __name__ == "__main__":
     import uvicorn
     
-    parser = argparse.ArgumentParser(description='pg_agent Web GUI')
+    parser = argparse.ArgumentParser(description='pgagent
+ Web GUI')
     parser.add_argument('--port', type=int, default=8000, help='Port to run on')
     parser.add_argument('--host', default='127.0.0.1', help='Host to bind to')
     parser.add_argument('--db', help='Database URL')
@@ -220,5 +222,6 @@ if __name__ == "__main__":
     if args.db:
         os.environ['DATABASE_URL'] = args.db
     
-    print(f"🧠 pg_agent Web GUI starting on http://{args.host}:{args.port}")
+    print(f"🧠 pgagent
+ Web GUI starting on http://{args.host}:{args.port}")
     uvicorn.run(app, host=args.host, port=args.port)
