@@ -1,6 +1,6 @@
 # pgagent
 
-This is the full English operational guide for **pgagent**.
+This is the operational guide for **pgagent**.
 
 `pgagent` is a PostgreSQL extension + Python toolkit that lets you store, search, and manage an AI agent's long-term memory directly in PostgreSQL.
 
