@@ -202,9 +202,9 @@ AS $$
 DECLARE
     v_embedding vector;
 BEGIN
-    SELECT embedding INTO v_embedding
-    FROM pgagent.memory
-    WHERE memory_id = p_memory_id;
+    SELECT m.embedding INTO v_embedding
+    FROM pgagent.memory m
+    WHERE m.memory_id = p_memory_id;
     
     IF v_embedding IS NULL THEN
         RETURN;

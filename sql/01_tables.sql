@@ -17,7 +17,7 @@ CREATE TABLE pgagent.memory (
     -- Metadata
     importance float DEFAULT 0.7 CHECK (importance >= 0 AND importance <= 1),
     category text DEFAULT 'other',
-    source text DEFAULT 'user' CHECK (source IN ('user', 'agent', 'system')),
+    source text DEFAULT 'user' CHECK (source IN ('user', 'agent', 'system', 'document')),
     
     -- Full-text search (auto-generated)
     tsv tsvector GENERATED ALWAYS AS (to_tsvector('english', content)) STORED,
@@ -33,8 +33,8 @@ CREATE INDEX idx_memory_tsv ON pgagent.memory USING GIN(tsv);
 CREATE INDEX idx_memory_created ON pgagent.memory(created_at DESC);
 
 -- Vector index (HNSW for better performance)
-CREATE INDEX idx_memory_embedding ON pgagent.memory 
-    USING hnsw (embedding vector_cosine_ops) WITH (m = 16, ef_construction = 64);
+-- CREATE INDEX idx_memory_embedding ON pgagent.memory 
+--     USING hnsw (embedding vector_cosine_ops) WITH (m = 16, ef_construction = 64);
 
 COMMENT ON TABLE pgagent.memory IS 'Core memory storage with vector embeddings and FTS';
 
@@ -69,8 +69,8 @@ CREATE TABLE pgagent.chunk (
 -- Indexes
 CREATE INDEX idx_chunk_memory ON pgagent.chunk(memory_id);
 CREATE INDEX idx_chunk_tsv ON pgagent.chunk USING GIN(tsv);
-CREATE INDEX idx_chunk_embedding ON pgagent.chunk 
-    USING hnsw (embedding vector_cosine_ops) WITH (m = 16, ef_construction = 64);
+-- CREATE INDEX idx_chunk_embedding ON pgagent.chunk 
+--     USING hnsw (embedding vector_cosine_ops) WITH (m = 16, ef_construction = 64);
 
 COMMENT ON TABLE pgagent.chunk IS 'Document chunks with embeddings for large content';
 
